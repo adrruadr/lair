@@ -40,6 +40,12 @@ group :development, :test do
   gem 'byebug', platform: :mri
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'rspec-rails', '2.13.1'
+end
+
+group :test do
+    gem 'selenium-webdriver'
+  gem 'capybara'
 end
 
 group :development do
@@ -55,6 +61,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :doc do
+  gem 'sdoc', require: false
+end
 
 ruby '2.2.5'
 #ruby-gemset=railstutorial_rails_4_0
