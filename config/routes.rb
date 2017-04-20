@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
   match '/', to: 'static_pages#home', via: 'get'
   #get 'home/index' => 'static_pages/home'
   get 'static_pages/home'
