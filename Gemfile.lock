@@ -225,6 +225,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc
   selenium-webdriver
+  sprockets-rails
   sqlite3
   turbolinks (~> 5)
   tzinfo-data
