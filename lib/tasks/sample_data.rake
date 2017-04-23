@@ -23,4 +23,11 @@ namespace :db do
                          password_confirmation: "123123",
                          admin: true)
   end
+  task mpopulate: :environment do
+    users = User.all.limit(6)
+    50.times do
+      content = Faker::Lorem.sentence(5)
+      users.each { |user| user.microposts.create!(content: content) }
+    end
+  end
 end

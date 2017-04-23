@@ -2,6 +2,13 @@ class SessionsController < ApplicationController
   def new
   end
 
+  def home
+    if signed_in?
+      @micropost  = current_user.microposts.build
+      @feed_items = current_user.feed.paginate(page: params[:page])
+    end
+  end
+
   def create
     user = User.find_by(email: params[:session][:email].downcase)
       if user && user.authenticate(params[:session][:password])

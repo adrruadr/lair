@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
+
   before_save { self.email = email.downcase }
   before_create :create_remember_token
 
@@ -18,7 +20,11 @@ class User < ApplicationRecord
     Digest::SHA1.hexdigest(token.to_s)
   end  
 
-
+  def feed
+    # Это предварительное решение. См. полную реализацию в "Following users".
+    Micropost.where("user_id = ?", id)
+  end
+  
     private
 
 
